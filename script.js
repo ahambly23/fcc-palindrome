@@ -1,8 +1,7 @@
 const textInput = document.getElementById("text-input");
 const checkButton = document.getElementById("check-btn");
 const container = document.querySelector(".palin-container");
-let result = document.createElement("p");
-result.setAttribute("id", "result");
+const result = document.getElementById("result");
 
 const getPalindrome = function (str) {
     let split = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase().split('');
@@ -18,15 +17,15 @@ const getPalindrome = function (str) {
 }
 
 checkButton.addEventListener("click", () => {
-    result.remove()
+    result.textContent = '';
     let phrase = textInput.value;
     textInput.value = '';
 
-    if (getPalindrome(phrase)) {
-        result.innerHTML = `${phrase} is a palindrome`;
+    if (phrase === '') {
+        alert("Please input a value");
+    } else if (getPalindrome(phrase)) {
+        result.textContent = `${phrase} is a palindrome`;
     } else {
-        result.innerHTML = `${phrase} is not a palindrome`;
+        result.textContent = `${phrase} is not a palindrome`;
     }
-
-    container.appendChild(result);
 })

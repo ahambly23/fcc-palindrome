@@ -17,15 +17,15 @@ const getPalindrome = function (str) {
 }
 
 checkButton.addEventListener("click", () => {
-    result.textContent = '';
+    result.innerHTML = '';
     let phrase = textInput.value;
     textInput.value = '';
 
     if (phrase === '') {
         alert("Please input a value");
     } else if (getPalindrome(phrase)) {
-        result.textContent = `${phrase} is a palindrome`;
+        result.innerHTML = `<strong>${phrase}</strong> is a palindrome`;
     } else {
-        result.textContent = `${phrase} is not a palindrome`;
+        result.innerHTML = `<strong>${phrase}</strong> is not a palindrome`;
     }
 })
